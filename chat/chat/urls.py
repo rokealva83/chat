@@ -5,6 +5,7 @@ urlpatterns = [
     # Examples:
     url(r'^$', 'chat.views.home', name='home'),
      url(r'^send_message', 'chat.views.send_message', name='send_message'),
+    url(r'^update_message', 'chat.views.update_message', name='update_message'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

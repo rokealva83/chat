@@ -15,9 +15,10 @@ def send_message(request):
         user = user,
         text = text
     )
-    # message.save()
-    messages = Message.objects.all()
-    return render(request, "chat.html", {'messages':messages})
+    message.save()
 
 
-# def message():
+def update_message(request):
+    id = int(request.POST.get('id'))
+    messages = Message.objects.filter(id__gr=id)
+    a=4
