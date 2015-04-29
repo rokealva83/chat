@@ -5,7 +5,9 @@ from chat.models import Message
 from django.http import JsonResponse
 
 def home(request):
-    messages = Message.objects.all()
+    last_id = Message.objects.last().pk
+    need_id = int(last_id) - 32
+    messages = Message.objects.filter(id__gte=need_id).all()
     return render(request, "chat.html", {'messages':messages})
 
 

@@ -5,24 +5,28 @@
 
 
 setInterval(
-function update() {
-    var id = $('.message:last').attr('id');
+    function update() {
+        var id = $('.message:last').attr('id');
 
-    $.post('/update_message',
-        {
-            id: id
-        },
-        function (response) {
-            var mess = response.result
-            for (i = 1; i < mess.length; i++){
-                var message = mess[i];
-                $('#ground').append('<p class="message" id="'+message.id+'"><b>'+message.user+'</b>: '+message.text+'</p>')
+        $.post('/update_message',
+            {
+                id: id
+            },
+            function (response) {
+                var mess = response.result
+                for (i = 1; i < mess.length; i++) {
+                    var message = mess[i];
+                    var delete_id = message.id - 33
+                    var first_message = $('#ground p:first').attr('id')
+                    if (delete_id == first_message) {
+                        $('#ground p:first').remove()
+                    }
+                    $('#ground').append('<p class="message" id="' + message.id + '"><b>' + message.user + '</b>: ' + message.text + '</p>')
+                }
             }
-        }
-    );
-
-}
-, 500)
+        );
+    }
+    , 500)
 
 
 function send_message() {
