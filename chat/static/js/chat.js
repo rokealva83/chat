@@ -38,6 +38,10 @@ function send_message() {
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     var message = 'user=' + user + '&text=' + text;
     xhttp.send(message);
+
+    $('#text').each(function () {
+        $(this).val('')
+    });
 }
 
 
