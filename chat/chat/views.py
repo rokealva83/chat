@@ -15,7 +15,7 @@ def send_message(request):
         user = user,
         text = text
     )
-    message.save()
+    # message.save()
     messages = Message.objects.all()
     return render(request, "chat.html", {'messages':messages})
 
