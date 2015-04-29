@@ -3,12 +3,28 @@
 <html>
 <head lang="ru">
     <meta http-equiv="content-type" content=text/html; charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/window_style.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/bootstrap.min.css' %}">
     <title>Chat-room</title>
 </head>
 <body>
-<div
+<div class="container">
+
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" style="padding:8px 15px;">
+                        <h2 style="margin-top: 0"><img alt="Brand" src="{% static 'static/images/icon_64x64.png' %}"
+                                 style="width: 32px;"> Chatroom</h2>
+
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+</div>
 
 
 </body>
