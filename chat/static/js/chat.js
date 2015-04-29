@@ -4,25 +4,30 @@
 
 
 
-//setInterval(
+setInterval(
 function update() {
     var id = $('.message:last').attr('id');
-    alert("text: " + id);
 
-    var answer = $.ajax({
-        type: "POST",
-        url: 'update_message',
-        data: "id=" + id
-    }).responseText;
-    alert("answer: " + answer);
+    $.post('/update_message',
+        {
+            id: id
+        },
+        function (response) {
+            var mess = response.result
+            for (i = 1; i < mess.length; i++){
+                var message = mess[i];
+                $('#ground').append('<p class="message" id="'+message.id+'"><b>'+message.user+'</b>: '+message.text+'</p>')
+            }
+        }
+    );
+
 }
-//, 1000)
+, 500)
 
 
 function send_message() {
     var user = document.getElementById('user').value;
     var text = document.getElementById('text').value;
-    alert("text: " + text + ", user: " + user + ".");
 
     xhttp = new XMLHttpRequest();
     xhttp.open('POST', 'send_message', true);
