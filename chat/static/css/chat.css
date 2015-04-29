@@ -1,0 +1,19 @@
+.bkgr{
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.bkgr p{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.my_btn{
+    width: 100%;
+    margin-top: 3px;
+    background: rgb(222, 222, 222) radial-gradient(150% 100% at 50% 5px, rgba(255, 255, 255, .2), rgba(0, 0, 0, 0));
+    box-shadow: inset rgba(0, 0, 0, 0.53) 0 -2px 5px, inset rgba(252, 255, 255, .7) 0 2px 5px, rgba(41, 41, 41, 0.80) 0 2px 5px -1px;
+
+}

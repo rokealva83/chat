@@ -4,6 +4,12 @@
 <head lang="ru">
     <meta http-equiv="content-type" content=text/html; charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'static/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'static/css/chat.css' %}">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+     <script type="text/javascript" src="{% static 'static/js/bootstrap.js' %}"></script>
+
+
     <title>Chat-room</title>
 </head>
 <body>
@@ -15,17 +21,42 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" style="padding:8px 15px;">
                         <h2 style="margin-top: 0"><img alt="Brand" src="{% static 'static/images/icon_64x64.png' %}"
-                                 style="width: 32px;"> Chatroom</h2>
-
+                                                       style="width: 32px;"> Chatroom</h2>
                     </a>
                 </div>
             </div>
         </nav>
-
     </div>
+    <div class="row">
+        <div class="col-lg-12 bkgr" style="height: 700px">
+            {% for message in messages %}
+                <p id="{{ message.id }}"><b>{{ message.user }}</b>: {{ message.text }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="send_message" method="post">
 
+                <div class="row">
+                    <div class="col-lg-3">
+                        <input name="user" type="text" class="form-control" placeholder="Input your name...">
+                    </div>
+                    <div class="col-lg-9">
+                        <input name="text" type="text" class="form-control" placeholder="Input your message...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default my_btn" type="submit"><b>Send</b></button>
+                        </span>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
 </div>
-
-
 </body>
 </html>
