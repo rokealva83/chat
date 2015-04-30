@@ -45,3 +45,11 @@ function send_message() {
 }
 
 
+$(document).ready(function () {
+    $("#ground .touch").click(function () {
+        var name = $(this).text();
+        $('#text').each(function () {
+            $(this).val(name + ',')
+        });
+    })
+})
